@@ -80,6 +80,7 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
+
 # Sonarlint plugin
 .idea/**/sonarlint/
 
@@ -90,9 +91,12 @@ fabric.properties
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
 
+.idea
+.vscode
 
 venv
 __pycache__
+secrets.json
 
 
 # End of https://www.gitignore.io/api/pycharm
