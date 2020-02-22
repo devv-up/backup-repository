@@ -2,6 +2,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+AUTH_USER_MODEL ='dev_up_api.Member'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
