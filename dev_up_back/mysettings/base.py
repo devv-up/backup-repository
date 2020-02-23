@@ -2,6 +2,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+AUTH_USER_MODEL ='dev_up_api.Member'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -11,8 +13,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dev_up_api',
     'rest_framework',
-    'rest_framework_swagger',
+    # 'oauth2_provider',
 ]
+# OAUTH2_PROVIDER ={
+#     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+# }
+#
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated',
+#     )
+#
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
