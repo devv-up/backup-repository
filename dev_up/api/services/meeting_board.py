@@ -13,13 +13,13 @@ class MeetingBoard(APIView):
 
         board = Board.objects.create(
             title=request_body.get('title'),
-            contents=request_body.get('contents'),
+            content=request_body.get('content'),
             location=request_body.get('location'),
-            meeting_capacity=request_body.get('meeting_capacity'),
-            meeting_date=request_body.get('meeting_date'),
-            meeting_times_of_day=request_body.get('meeting_times_of_day'),
-            category=Category.objects.get(pk=request_body.get('category_id')),
-            author=Member.objects.get(id=request_body.get('id'))
+            meeting_capacity=request_body.get('meetingCapacity'),
+            meeting_date=request_body.get('meetingDate'),
+            meeting_times_of_day=request_body.get('meetingTimesOfDay'),
+            category=Category.objects.get(pk=request_body.get('categoryId')),
+            author=Member.objects.get(id=request_body.get('authorId'))
         )
 
         return Response(BoardSerializer(board).data)

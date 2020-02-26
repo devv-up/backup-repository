@@ -15,22 +15,23 @@ class MeetingBoardTest(APITestCase, MemberMock, CategoryMock, BoardPostingData):
 
         data = json.dumps({
             'title': self.title,
-            'contents': self.contents,
+            'content': self.content,
             'location': self.location,
-            'meeting_capacity': self.meeting_capacity,
-            'meeting_date': self.meeting_date,
-            'meeting_times_of_day': self.meeting_times_of_day,
-            'category_id': category.id,
-            'author_name': member.id
+            'meetingCapacity': self.meeting_capacity,
+            'meetingDate': self.meeting_date,
+            'meetingTimesOfDay': self.meeting_times_of_day,
+            'authorId': member.id,
+            'categoryId': category.id
         })
 
         result = self.client.post('/board/', data, content_type='application/json')
 
         self.assertEquals(result.status_code, 200)
         self.assertEquals(result.data['title'], self.title)
-        self.assertEquals(result.data['contents'], self.contents)
+        self.assertEquals(result.data['content'], self.content)
         self.assertEquals(result.data['location'], self.location)
-        self.assertEquals(result.data['meeting_capacity'], self.meeting_capacity)
-        self.assertEquals(result.data['meeting_times_of_day'], self.meeting_times_of_day)
-        self.assertEquals(result.data['author'], member.id)
-        self.assertEquals(result.data['category'], category.id)
+        self.assertEquals(result.data['meetingCapacity'], self.meeting_capacity)
+        self.assertEquals(result.data['meetingDate'], self.meeting_date)
+        self.assertEquals(result.data['meetingTimesOfDay'], self.meeting_times_of_day)
+        self.assertEquals(result.data['authorId'], member.id)
+        self.assertEquals(result.data['categoryId'], category.id)
