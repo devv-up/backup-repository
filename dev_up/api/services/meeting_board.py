@@ -3,8 +3,8 @@ import json
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from dev_up_api.api_serializers.board_serializers import BoardSerializer
-from dev_up_api.models import Board, Category, Member
+from api.serializers.board_serializers import BoardSerializer
+from api.models import Board, Category, Member
 
 
 class MeetingBoard(APIView):

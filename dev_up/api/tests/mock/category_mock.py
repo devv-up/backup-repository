@@ -1,4 +1,4 @@
-from dev_up_api.models import Category
+from api.models import Category
 
 
 class CategoryMock:

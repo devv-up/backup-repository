@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('dev_up_api', '0003_auto_20200226_1451'),
+        ('api', '0003_auto_20200226_1451'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='member',
             name='bookmarks',
-            field=models.ManyToManyField(blank=True, to='dev_up_api.Board'),
+            field=models.ManyToManyField(blank=True, to='api.Board'),
         ),
     ]

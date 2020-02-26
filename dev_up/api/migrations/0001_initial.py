@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=30)),
-                ('board_tags', models.ManyToManyField(to='dev_up_api.Board')),
+                ('board_tags', models.ManyToManyField(to='api.Board')),
             ],
         ),
         migrations.CreateModel(
@@ -83,20 +83,20 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('comments', models.TextField()),
                 ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('board', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dev_up_api.Board')),
-                ('comment_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='dev_up_api.Comment')),
+                ('board', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.Board')),
+                ('comment_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='api.Comment')),
                 ('member', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='board',
             name='category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dev_up_api.Category'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.Category'),
         ),
         migrations.AddField(
             model_name='member',
             name='bookmarks',
-            field=models.ManyToManyField(to='dev_up_api.Board'),
+            field=models.ManyToManyField(to='api.Board'),
         ),
         migrations.AddField(
             model_name='member',

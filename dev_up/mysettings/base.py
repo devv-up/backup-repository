@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-AUTH_USER_MODEL ='dev_up_api.Member'
+AUTH_USER_MODEL ='api.Member'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -12,7 +12,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'dev_up_api',
+    'api',
     'rest_framework',
     # 'oauth2_provider',
 ]

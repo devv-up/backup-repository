@@ -1,4 +1,4 @@
-from dev_up_api.models import Member
+from api.models import Member
 
 
 class MemberMock:

@@ -36,7 +36,7 @@ from django.urls import path, include
 #     permission_classes = [permissions.IsAuthenticated, TokenHasScope]
 #     queryset = Group.objects.all()
 #     serializer_class = GroupSerializer
-from dev_up_api.services.meeting_board import MeetingBoard
+from api.services.meeting_board import MeetingBoard
 
 urlpatterns = [
     path('board/', MeetingBoard.as_view(), name='board_create'),
