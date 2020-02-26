@@ -2,9 +2,9 @@ import json
 
 from rest_framework.test import APITestCase
 
-from api.tests.mock.board_posting_data import BoardPostingData
-from api.tests.mock.category_mock import CategoryMock
-from api.tests.mock.member_mock import MemberMock
+from api.tests.mocks.board_posting_data import BoardPostingData
+from api.tests.mocks.category_mock import CategoryMock
+from api.tests.mocks.member_mock import MemberMock
 
 
 class MeetingBoardTest(APITestCase, MemberMock, CategoryMock, BoardPostingData):
