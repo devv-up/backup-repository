@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-# Create your models here.
 class MyUserManager(BaseUserManager):
     def _create_user(self, username, email, password, **extra_fields):
         if not email:
@@ -12,11 +11,12 @@ class MyUserManager(BaseUserManager):
             raise ValueError('유저네임은 필수입니다.')
         elif not password:
             raise ValueError('비밀번호는 필수입니다.')
+
         email = self.normalize_email(email)
-        username = self.normalize_username(username)
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
+
         return user
 
     def create_user(self, username, email, password, **extra_fields):
@@ -32,7 +32,7 @@ class Member(AbstractUser):
     verification = models.BooleanField(default=False)
     verification_key = models.CharField(max_length=256, null=True)
 
-    bookmarks = models.ManyToManyField('Board')
+    bookmarks = models.ManyToManyField('Board', blank=True)
 
     objects = MyUserManager()
 
@@ -49,7 +49,7 @@ class Category(models.Model):
 
 class Board(models.Model):
     title = models.CharField(max_length=30, db_index=True)
-    contents = models.TextField(db_index=True)
+    content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     location = models.CharField(max_length=75)
     meeting_capacity = models.IntegerField()
@@ -82,13 +82,6 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.title
-
-
-# class Type(models.Model):
-#     type_name = models.CharField(max_length=30)
-#
-#     def __str__(self):
-#         return self.type_name
 
 
 class Photo(models.Model):

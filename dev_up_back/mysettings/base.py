@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'dev_up_api',
     'rest_framework',
 ]
@@ -71,3 +72,8 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
